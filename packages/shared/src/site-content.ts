@@ -15,9 +15,8 @@ export const siteIdentity = {
   id: "PSE-HORIZONTE",
   name: "Portal de Servicios Estudiantiles Horizonte",
   shortName: "Portal Horizonte",
-  owner: "Camacho Ibarra Jorge Jair",
-  unit: "Unidad 1",
-  repositoryName: "camachoibarrajorgejairUnidad1"
+  supportEmail: "atencion@horizonte.edu.mx",
+  supportPhone: "55 1200 4800"
 };
 
 export const siteRoutes: SiteRoute[] = [
@@ -30,7 +29,7 @@ export const siteRoutes: SiteRoute[] = [
   {
     path: "/registro",
     title: "Registro",
-    description: "Alta de estudiantes con validacion de datos y CAPTCHA.",
+    description: "Alta de estudiantes con verificacion de seguridad.",
     keywords: ["registro", "cuenta", "alta", "estudiante", "captcha"]
   },
   {
@@ -60,13 +59,13 @@ export const siteRoutes: SiteRoute[] = [
   {
     path: "/contacto",
     title: "Contactanos",
-    description: "Formulario de contacto con validaciones y CAPTCHA.",
+    description: "Formulario de contacto para recibir atencion escolar.",
     keywords: ["contacto", "contactanos", "correo", "telefono"]
   },
   {
     path: "/mapa-del-sitio",
     title: "Mapa del sitio",
-    description: "Mapa jerarquico de secciones principales y secundarias.",
+    description: "Directorio de areas y servicios disponibles.",
     keywords: ["mapa", "sitio", "secciones", "navegacion"]
   },
   {
@@ -85,7 +84,7 @@ export const siteRoutes: SiteRoute[] = [
 
 export const siteMap: SiteMapNode[] = [
   {
-    label: "Secciones principales",
+    label: "Servicios principales",
     path: "/",
     children: [
       { label: "Inicio", path: "/" },
@@ -97,7 +96,7 @@ export const siteMap: SiteMapNode[] = [
     ]
   },
   {
-    label: "Secciones secundarias",
+    label: "Cuenta y navegacion",
     path: "/mapa-del-sitio",
     children: [
       { label: "Mapa del sitio", path: "/mapa-del-sitio" },
@@ -107,13 +106,13 @@ export const siteMap: SiteMapNode[] = [
     ]
   },
   {
-    label: "Elementos adicionales",
+    label: "Soporte y seguridad",
     path: "/ayuda",
     children: [
-      { label: "Pagina de error 404", path: "/ruta-inexistente" },
-      { label: "Validacion frontend", path: "/registro" },
-      { label: "Validacion backend", path: "/contacto" },
-      { label: "Validacion de usuario humano", path: "/buzon" }
+      { label: "Pagina no encontrada", path: "/ruta-inexistente" },
+      { label: "Registro seguro", path: "/registro" },
+      { label: "Contacto verificado", path: "/contacto" },
+      { label: "Buzon protegido", path: "/buzon" }
     ]
   }
 ];

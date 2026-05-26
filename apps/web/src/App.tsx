@@ -153,9 +153,9 @@ function PageHeader({
 
 function HomePage({ navigate }: PageProps) {
   const actions = [
-    { path: "/registro", title: "Crear cuenta", detail: "Alta con validacion completa", icon: UserPlus },
+    { path: "/registro", title: "Crear cuenta", detail: "Acceso a servicios y avisos", icon: UserPlus },
     { path: "/buzon", title: "Enviar al buzon", detail: "Comentarios y reportes", icon: ClipboardList },
-    { path: "/chat", title: "Abrir chat", detail: "Orientacion rapida", icon: Bot },
+    { path: "/chat", title: "Abrir chat", detail: "Respuesta inmediata", icon: Bot },
     { path: "/mapa-del-sitio", title: "Ver mapa", detail: "Secciones y rutas", icon: MapIcon }
   ];
 
@@ -163,10 +163,10 @@ function HomePage({ navigate }: PageProps) {
     <>
       <section className="dashboard-hero">
         <div className="hero-copy">
-          <span className="eyebrow">{siteIdentity.unit}</span>
+          <span className="eyebrow">Servicios estudiantiles</span>
           <h1>{siteIdentity.name}</h1>
           <p>
-            Un portal academico para centralizar acceso, soporte, contacto y busqueda de servicios estudiantiles.
+            Gestiona tu acceso, solicita apoyo y encuentra informacion clave desde un solo espacio digital.
           </p>
           <div className="hero-actions">
             <button className="primary-button" onClick={() => navigate("/registro")}>
@@ -185,7 +185,7 @@ function HomePage({ navigate }: PageProps) {
       <section className="content-band">
         <div className="section-heading">
           <h2>Accesos principales</h2>
-          <span>Repositorio sugerido: {siteIdentity.repositoryName}</span>
+          <span>Atencion rapida para estudiantes</span>
         </div>
         <div className="quick-grid">
           {actions.map((action) => {
@@ -202,22 +202,6 @@ function HomePage({ navigate }: PageProps) {
         </div>
       </section>
 
-      <section className="content-band two-columns">
-        <div>
-          <h2>Cobertura del sitio</h2>
-          <p className="muted">
-            La navegacion incluye secciones principales, elementos adicionales, busqueda interna y pagina de error.
-          </p>
-        </div>
-        <div className="requirements-list">
-          {["Mapa del sitio", "Pagina 404", "Frontend y backend", "CAPTCHA humano"].map((item) => (
-            <span key={item}>
-              <CheckCircle2 size={18} />
-              {item}
-            </span>
-          ))}
-        </div>
-      </section>
     </>
   );
 }
@@ -252,7 +236,7 @@ function RegisterPage() {
     <FormPage
       icon={UserPlus}
       title="Registro"
-      description="Alta de estudiante con validacion en frontend, backend y CAPTCHA."
+      description="Crea tu cuenta y protege tu acceso con verificacion de seguridad."
       status={status}
     >
       <form className="form-grid" onSubmit={submit}>
@@ -371,7 +355,7 @@ function RecoverPasswordPage() {
     <FormPage
       icon={KeyRound}
       title="Recuperacion de password"
-      description="Solicitud de recuperacion con validacion de usuario humano."
+      description="Recibe instrucciones para volver a entrar a tu cuenta."
       status={status}
     >
       <form className="form-grid" onSubmit={submit}>
@@ -569,7 +553,7 @@ function SiteMapPage({ navigate }: PageProps) {
         icon={MapIcon}
         eyebrow="Navegacion"
         title="Mapa del sitio"
-        description="Secciones principales, secundarias y elementos adicionales."
+        description="Encuentra rapidamente cada area disponible del portal."
       />
       <div className="sitemap">
         {siteMap.map((node) => (

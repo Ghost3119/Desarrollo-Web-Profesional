@@ -22,7 +22,7 @@ export class ChatService {
     } else if (normalized.includes("buzon")) {
       reply = "El Buzon recibe dudas, sugerencias y reportes tecnicos. Cada solicitud genera un folio.";
     } else if (normalized.includes("mapa")) {
-      reply = "El Mapa del sitio muestra secciones principales, secundarias y elementos adicionales.";
+      reply = "El Mapa del sitio muestra servicios, accesos de cuenta y canales de soporte disponibles.";
     }
 
     return {
