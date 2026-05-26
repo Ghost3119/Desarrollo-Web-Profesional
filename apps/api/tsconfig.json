@@ -1,0 +1,13 @@
+{
+  "extends": "../../packages/tsconfig.base.json",
+  "compilerOptions": {
+    "composite": true,
+    "rootDir": "../..",
+    "outDir": "../../dist/api",
+    "noEmit": false,
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "types": ["node"]
+  },
+  "include": ["src/**/*.ts", "../../packages/shared/src/**/*.ts"]
+}
