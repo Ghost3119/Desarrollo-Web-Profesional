@@ -19,6 +19,23 @@ Tambien se usa MVC:
 
 ## Frontend
 
+El frontend usa una arquitectura Feature-Based con componentes compartidos:
+
+```txt
+apps/web/src/
+  app/                 # Composicion, layout, navegacion y rutas
+  features/            # Casos de uso por modulo
+    auth/
+    chat/
+    contact/
+    mailbox/
+  pages/               # Paginas generales del portal
+  shared/              # API client, hooks, helpers y UI reutilizable
+  router.ts            # History API del navegador
+```
+
+`app/App.tsx` solo decide que pagina renderizar y aplica el layout principal. Las rutas se concentran en `app/routes.ts`.
+
 React maneja rutas de la aplicacion con History API:
 
 - `/`
