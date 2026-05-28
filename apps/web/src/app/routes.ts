@@ -6,15 +6,20 @@ import { ContactPage } from "../features/contact/pages/ContactPage";
 import { MailboxPage } from "../features/mailbox/pages/MailboxPage";
 import { HelpPage } from "../pages/HelpPage";
 import { HomePage } from "../pages/HomePage";
+import { PublicHomePage } from "../pages/PublicHomePage";
 import { SearchPage } from "../pages/SearchPage";
 import { SiteMapPage } from "../pages/SiteMapPage";
 import type { PageProps } from "./types";
 
-export const routeByPath = new Map<string, (props: PageProps) => JSX.Element>([
-  ["/", HomePage],
-  ["/registro", RegisterPage],
+export const publicRouteByPath = new Map<string, (props: PageProps) => JSX.Element>([
+  ["/", PublicHomePage],
   ["/login", LoginPage],
-  ["/recuperar-password", RecoverPasswordPage],
+  ["/registro", RegisterPage],
+  ["/recuperar-password", RecoverPasswordPage]
+]);
+
+export const privateRouteByPath = new Map<string, (props: PageProps) => JSX.Element>([
+  ["/", HomePage],
   ["/buzon", MailboxPage],
   ["/ayuda", HelpPage],
   ["/contacto", ContactPage],
@@ -22,3 +27,5 @@ export const routeByPath = new Map<string, (props: PageProps) => JSX.Element>([
   ["/chat", ChatPage],
   ["/buscar", SearchPage]
 ]);
+
+export const publicAuthPaths = new Set(["/login", "/registro", "/recuperar-password"]);

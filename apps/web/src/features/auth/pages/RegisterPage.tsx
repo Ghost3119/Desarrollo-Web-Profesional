@@ -2,13 +2,15 @@ import { Send, UserPlus } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import type { FieldError } from "../../../../../../packages/shared/src/contracts";
 import { careers, validateRegister } from "../../../../../../packages/shared/src/validators";
-import type { SubmitState } from "../../../app/types";
+import type { PageProps, SubmitState } from "../../../app/types";
 import { api } from "../../../shared/api/client";
 import { handleResult } from "../../../shared/forms/handleResult";
 import { useCaptcha } from "../../../shared/hooks/useCaptcha";
 import { CaptchaBox, FieldMessage, FormPage } from "../../../shared/ui";
+import { useAuthSession } from "../session";
 
-export function RegisterPage() {
+export function RegisterPage({ navigate }: PageProps) {
+  const { signIn } = useAuthSession();
   const { captcha, captchaAnswer, setCaptchaAnswer, refreshCaptcha } = useCaptcha();
   const [form, setForm] = useState({
     fullName: "",
@@ -31,6 +33,11 @@ export function RegisterPage() {
 
     const result = await api.register(payload);
     handleResult(result, setStatus, setErrors);
+    if (result.ok && result.data) {
+      signIn(result.data);
+      navigate("/");
+      return;
+    }
     await refreshCaptcha();
   };
 

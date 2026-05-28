@@ -73,3 +73,19 @@ GET /api/captcha/:id.svg
 ```
 
 El formulario envia `captchaId` y `captchaAnswer`. El CAPTCHA se consume despues de validarse para evitar reutilizacion.
+## Flujo de navegacion
+
+El portal separa rutas publicas y privadas:
+
+- Publicas: `/`, `/login`, `/registro`, `/recuperar-password`.
+- Privadas: `/buzon`, `/ayuda`, `/contacto`, `/mapa-del-sitio`, `/chat`, `/buscar`.
+
+Antes de iniciar sesion, el usuario ve una landing con llamadas a inicio de sesion y registro. Despues de autenticarse, el layout muestra el menu completo, busqueda interna y cierre de sesion.
+
+La sesion del frontend se guarda en `localStorage` con `AuthSessionProvider`. Es una sesion de demostracion para este proyecto; no sustituye tokens JWT, cookies seguras ni persistencia real de usuarios.
+
+## ORM
+
+Actualmente el proyecto no usa ORM. El backend usa repositorios en memoria para mantener el alcance simple de la Unidad 1 y mostrar la separacion por capas.
+
+Si se requiere persistencia real, la opcion recomendada es Prisma con SQLite para desarrollo local. Encaja con la arquitectura actual porque solo habria que reemplazar las implementaciones de `infrastructure/` sin cambiar los controladores ni los servicios de aplicacion.

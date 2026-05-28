@@ -2,12 +2,14 @@ import { LogIn } from "lucide-react";
 import { type FormEvent, useState } from "react";
 import type { FieldError } from "../../../../../../packages/shared/src/contracts";
 import { validateLogin } from "../../../../../../packages/shared/src/validators";
-import type { SubmitState } from "../../../app/types";
+import type { PageProps, SubmitState } from "../../../app/types";
 import { api } from "../../../shared/api/client";
 import { handleResult } from "../../../shared/forms/handleResult";
 import { FieldMessage, FormPage } from "../../../shared/ui";
+import { useAuthSession } from "../session";
 
-export function LoginPage() {
+export function LoginPage({ navigate }: PageProps) {
+  const { signIn } = useAuthSession();
   const [form, setForm] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState<FieldError[]>([]);
   const [status, setStatus] = useState<SubmitState>({ message: "" });
@@ -23,6 +25,10 @@ export function LoginPage() {
 
     const result = await api.login(form);
     handleResult(result, setStatus, setErrors);
+    if (result.ok && result.data) {
+      signIn(result.data);
+      navigate("/");
+    }
   };
 
   return (
@@ -45,6 +51,9 @@ export function LoginPage() {
         <button className="primary-button wide" type="submit">
           <LogIn size={18} />
           Entrar
+        </button>
+        <button className="text-button wide" type="button" onClick={() => navigate("/recuperar-password")}>
+          Olvide mi password
         </button>
       </form>
     </FormPage>

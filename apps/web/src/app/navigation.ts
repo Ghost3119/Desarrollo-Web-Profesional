@@ -2,11 +2,9 @@ import {
   ClipboardList,
   HelpCircle,
   Home,
-  LogIn,
   Mail,
   Map as MapIcon,
-  MessageCircle,
-  UserPlus
+  MessageCircle
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
@@ -18,8 +16,6 @@ export type NavItem = {
 
 export const mainNavigation: NavItem[] = [
   { path: "/", label: "Inicio", icon: Home },
-  { path: "/registro", label: "Registro", icon: UserPlus },
-  { path: "/login", label: "Sesion", icon: LogIn },
   { path: "/buzon", label: "Buzon", icon: ClipboardList },
   { path: "/ayuda", label: "Ayuda", icon: HelpCircle },
   { path: "/contacto", label: "Contacto", icon: Mail },
