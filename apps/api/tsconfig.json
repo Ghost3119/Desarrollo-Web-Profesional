@@ -6,6 +6,7 @@
     "outDir": "../../dist/api",
     "noEmit": false,
     "module": "CommonJS",
+    "ignoreDeprecations": "6.0",
     "moduleResolution": "Node",
     "types": ["node"]
   },
